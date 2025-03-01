@@ -14,24 +14,38 @@
             padding: 20px;
             background: linear-gradient(135deg, #2c3e50, #4b6584);
             color: white;
-          }
-      
-          h1 {
+        }
+
+        h1{
             font-size: 32px;
             text-transform: uppercase;
             margin-bottom: 15px;
             letter-spacing: 2px;
-          }
+        }
+      
+
+
+      
     </style>
 </head>
 <body>
     <div id="root"></div>
 
     <script type="text/babel">
+        
+        function DeckOfCards(){
+
+            return(
+                <div>
+                    <h1>Deck of Cards</h1>
+                </div>
+            );
+        }
+
 
 
         const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<DeckOfCards />);
+        root.render(<DeckOfCards />);
     </script>
 </body>
 </html>
