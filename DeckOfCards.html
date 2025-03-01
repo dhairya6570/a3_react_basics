@@ -48,6 +48,37 @@
           #deck:active {
             transform: scale(1.05);
           }
+
+          .card {
+            width: 110px;
+            height: 160px;
+            margin: 10px;
+            display: inline-block;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 12px;
+            box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transform: translateY(-30px) scale(0.8);
+            animation: dealCard 0.5s ease-in-out forwards;
+          }
+
+          .card .top-left {
+            align-self: flex-start;
+            font-size: 18px;
+          }
+        
+          .card .bottom-right {
+            align-self: flex-end;
+            font-size: 18px;
+            transform: rotate(180deg);
+          }
         
       
     </style>
