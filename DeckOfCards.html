@@ -99,13 +99,32 @@
           }
         
         function DeckOfCards(){
+            const suits = ['♥', '♦', '♣', '♠'];
+            const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+            const [deck, setDeck] = React.useState(generateDeck());
+
+
+            function generateDeck(){
+                let newDeck = [];
+                suits.forEach(suit => {
+                    values.forEach(value => {
+                        newDeck.push({ suit, value });
+                    });
+                });
+                return shuffle(newDeck);
+            }
+
+            function shuffle(deck){
+                return [...deck].sort(() => Math.random() - 0.5);
+            }
 
             return(
                 <div>
                     <h1>Deck of Cards</h1>
                     <div 
-                    id="deck" 
+                    id="deck" onClick={() => setDeck(generateDeck())}
                     >
+                    Deck ({deck.length}) 
                     </div>
                 </div>
             );
