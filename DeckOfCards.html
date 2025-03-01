@@ -56,6 +56,16 @@
     <div id="root"></div>
 
     <script type="text/babel">
+        function Card({ suit, value }) {
+            const isRed = suit === '♥' || suit === '♦';
+            return (
+              <div className={`card ${isRed ? 'red' : 'black'}`}>
+                <div className="top-left">{value} {suit}</div>
+                <div>{suit}</div>
+                <div className="bottom-right">{value} {suit}</div>
+              </div>
+            );
+          }
         
         function DeckOfCards(){
 
