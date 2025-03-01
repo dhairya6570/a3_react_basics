@@ -39,22 +39,22 @@
             box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
             position: relative;
             transition: transform 0.2s ease-in-out;
-          }
+        }
         
-          #deck:hover {
+        #deck:hover {
             transform: scale(1.1);
-          }
+        }
         
-          #deck:active {
+        #deck:active {
             transform: scale(1.05);
-          }
+        }
 
-          .deck-empty {
+        .deck-empty {
             background: linear-gradient(135deg, #7f8c8d, #95a5a6);
             cursor: default;
-          }
+        }
 
-          .card {
+        .card {
             width: 110px;
             height: 160px;
             margin: 10px;
@@ -72,18 +72,33 @@
             opacity: 0;
             transform: translateY(-30px) scale(0.8);
             animation: dealCard 0.5s ease-in-out forwards;
-          }
+        }
 
-          .card .top-left {
+        .card .top-left {
             align-self: flex-start;
             font-size: 18px;
-          }
+        }
         
-          .card .bottom-right {
+        .card .bottom-right {
             align-self: flex-end;
             font-size: 18px;
             transform: rotate(180deg);
-          }
+        }
+
+        .card.red {
+            color: #e74c3c;
+        }
+      
+        .card.black {
+            color: #2d3436;
+        }
+      
+        .card-container {
+            margin: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
         
       
     </style>
@@ -144,6 +159,15 @@
                     >
                     {deckCount > 0 ? `Deck (${deckCount})` : 'No Cards'}
                     </div>
+                    <div className="card-container">
+                        {cardsInHand.map((card, index) => (
+                          <Card 
+                            key={index} 
+                            suit={card.suit} 
+                            value={card.value} 
+                          />
+                        ))}
+                      </div>
                 </div>
             );
         }
