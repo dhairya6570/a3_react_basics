@@ -231,8 +231,9 @@
                 for (let i = 0; i < numCards && deck.length > 0; i++) {
                 dealtCards.push(deck.pop());
                 }
-                setCardsInHand([...cardsInHand, ...dealtCards]);//There is bug(main problem)
-                setDeck([...deck]);
+                setCardsInHand(dealtCards);//There was bug: Previously, setCardsInHand(dealtCards) was overwriting the existing hand instead of adding new cards.
+                setDeck(deck);
+                setDeckCount(deck.length);
             }
 
             return(
