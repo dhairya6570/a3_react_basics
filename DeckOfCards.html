@@ -184,6 +184,13 @@
                 setDeckCount(deck.length - 1);
             }
 
+            function resetDeck() {
+                const newDeck = generateDeck();
+                setDeck(newDeck);
+                setCardsInHand([]);
+                setDeckCount(newDeck.length);
+            }
+
 
             return(
                 <div>
@@ -199,7 +206,7 @@
                     <div>
                         <button className="btn" onClick="">Deal 5</button>
                         <button className="btn" onClick="">Deal 7</button>
-                        <button className="btn" onClick="">Reset</button>
+                        <button className="btn" onClick={resetDeck}>Reset</button>
                         <button className="btn" onClick="">Wildcard</button>
                         <button className="btn" onClick="">Regroup</button>
                         <button className="btn" onClick="">Toss</button>
