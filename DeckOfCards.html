@@ -194,7 +194,7 @@
             function addWildcard() {
                 const suit = suits[Math.floor(Math.random() * suits.length)];
                 const value = values[Math.floor(Math.random() * values.length)];
-                setCardsInHand([...prevHand, { suit, value }]);
+                setCardsInHand((prevHand) => [...prevHand, { suit, value }]); // There was Mistake: I Directly use cardsInHand without the previous state.
             }
 
 
