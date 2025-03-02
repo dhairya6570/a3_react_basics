@@ -197,6 +197,9 @@
                 setCardsInHand((prevHand) => [...prevHand, { suit, value }]); // There was Mistake: I Directly use cardsInHand without the previous state.
             }
 
+            function regroupCards() {
+                setCardsInHand((prevHand) => shuffle(prevHand));
+            }
 
             return(
                 <div>
@@ -214,7 +217,7 @@
                         <button className="btn" onClick="">Deal 7</button>
                         <button className="btn" onClick={resetDeck}>Reset</button>
                         <button className="btn" onClick={addWildcard}>Wildcard</button>
-                        <button className="btn" onClick="">Regroup</button>
+                        <button className="btn" onClick={regroupCards}>Regroup</button>
                         <button className="btn" onClick="">Toss</button>
                     </div>
 
