@@ -201,6 +201,29 @@
                 setCardsInHand((prevHand) => shuffle(prevHand));
             }
 
+            function handleCardClick(index) {
+                if (pickedCardIndex === null) {
+                    setPickedCardIndex(index); 
+                } else if (pickedCardIndex === index) {
+                    setPickedCardIndex(null); 
+                } else {
+                    const updatedHand = [...cardsInHand];
+                    const temp = updatedHand[pickedCardIndex];
+                    updatedHand[pickedCardIndex] = updatedHand[index];
+                    updatedHand[index] = temp;
+                    setCardsInHand(updatedHand);
+                    setPickedCardIndex(null);
+                }
+            }
+
+            function tossPickedCard() {
+                if (pickedCardIndex !== null) {
+                  const updatedHand = cardsInHand.filter((_, index) => index !== pickedCardIndex);
+                  setCardsInHand(updatedHand);
+                  setPickedCardIndex(null);
+                }
+              }
+
             return(
                 <div>
                     <h1>Deck of Cards</h1>
@@ -218,7 +241,7 @@
                         <button className="btn" onClick={resetDeck}>Reset</button>
                         <button className="btn" onClick={addWildcard}>Wildcard</button>
                         <button className="btn" onClick={regroupCards}>Regroup</button>
-                        <button className="btn" onClick="">Toss</button>
+                        <button className="btn" onClick={tossPickedCard}>Toss</button>
                     </div>
 
                     <div className="card-container">
