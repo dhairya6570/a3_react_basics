@@ -231,7 +231,7 @@
                 for (let i = 0; i < numCards && deck.length > 0; i++) {
                 dealtCards.push(deck.pop());
                 }
-                setCardsInHand([...cardsInHand, ...dealtCards]);
+                setCardsInHand([...cardsInHand, ...dealtCards]);//There is bug(main problem)
                 setDeck([...deck]);
             }
 
