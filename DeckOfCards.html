@@ -250,8 +250,8 @@
                             key={index} 
                             suit={card.suit} 
                             value={card.value} 
-                            isHighlighted={index === pickedCardIndex}
-                            onClick={() => setPickedCardIndex(index)} 
+                            isHighlighted={index === pickedCardIndex} // here is bug
+                            onClick={() => setPickedCardIndex(index)} // here is bug
                           />
                         ))}
                     </div>
