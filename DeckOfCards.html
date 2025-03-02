@@ -129,6 +129,10 @@
             background: linear-gradient(135deg, #2ecc71, #16a085);
             transform: scale(1.05);
         }
+
+        .card.highlighted {
+            border: 3px solid #FFD700; /* Golden yellow color for a more attractive highlight */
+        }
       
     </style>
 </head>
@@ -136,10 +140,12 @@
     <div id="root"></div>
 
     <script type="text/babel">
-        function Card({ suit, value }) {
+        function Card({ suit, value, onClick, isHighlighted }) {
             const isRed = suit === '♥' || suit === '♦';
             return (
-              <div className={`card ${isRed ? 'red' : 'black'}`}>
+              <div className={`card ${isRed ? 'red' : 'black'} ${isHighlighted ? 'highlighted' : ''}`}
+              onClick={onClick}
+              >
                 <div className="top-left">{value} {suit}</div>
                 <div>{suit}</div>
                 <div className="bottom-right">{value} {suit}</div>
@@ -152,7 +158,8 @@
             const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
             const [deck, setDeck] = React.useState(generateDeck());
             const [cardsInHand, setCardsInHand] = React.useState([]);
-            const [deckCount, setDeckCount] = React.useState(deck.length); 
+            const [deckCount, setDeckCount] = React.useState(deck.length);
+            const [pickedCardIndex, setPickedCardIndex] = React.useState(null); 
 
 
             function generateDeck(){
@@ -194,6 +201,8 @@
                             key={index} 
                             suit={card.suit} 
                             value={card.value} 
+                            isHighlighted={index === pickedCardIndex}
+                            onClick={() => setPickedCardIndex(index)} 
                           />
                         ))}
                     </div>
