@@ -218,11 +218,22 @@
 
             function tossPickedCard() {
                 if (pickedCardIndex !== null) {
-                  const updatedHand = cardsInHand.filter((_, index) => index !== pickedCardIndex);
-                  setCardsInHand(updatedHand);
-                  setPickedCardIndex(null);
+                    const updatedHand = cardsInHand.filter((_, index) => index !== pickedCardIndex);
+                    setCardsInHand(updatedHand);
+                    setPickedCardIndex(null);
                 }
-              }
+            }
+
+            
+            function dealCards(numCards) {
+                if (deck.length === 0) return;
+                let dealtCards = [];
+                for (let i = 0; i < numCards && deck.length > 0; i++) {
+                dealtCards.push(deck.pop());
+                }
+                setCardsInHand([...cardsInHand, ...dealtCards]);
+                setDeck([...deck]);
+            }
 
             return(
                 <div>
@@ -236,8 +247,8 @@
                     </div>
 
                     <div>
-                        <button className="btn" onClick="">Deal 5</button>
-                        <button className="btn" onClick="">Deal 7</button>
+                        <button className="btn" onClick={() => dealCards(5)}>Deal 5</button>
+                        <button className="btn" onClick={() => dealCards(7)}>Deal 7</button>
                         <button className="btn" onClick={resetDeck}>Reset</button>
                         <button className="btn" onClick={addWildcard}>Wildcard</button>
                         <button className="btn" onClick={regroupCards}>Regroup</button>
