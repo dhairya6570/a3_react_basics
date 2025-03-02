@@ -191,6 +191,12 @@
                 setDeckCount(newDeck.length);
             }
 
+            function addWildcard() {
+                const suit = suits[Math.floor(Math.random() * suits.length)];
+                const value = values[Math.floor(Math.random() * values.length)];
+                setCardsInHand([...prevHand, { suit, value }]);
+            }
+
 
             return(
                 <div>
@@ -207,7 +213,7 @@
                         <button className="btn" onClick="">Deal 5</button>
                         <button className="btn" onClick="">Deal 7</button>
                         <button className="btn" onClick={resetDeck}>Reset</button>
-                        <button className="btn" onClick="">Wildcard</button>
+                        <button className="btn" onClick={addWildcard}>Wildcard</button>
                         <button className="btn" onClick="">Regroup</button>
                         <button className="btn" onClick="">Toss</button>
                     </div>
