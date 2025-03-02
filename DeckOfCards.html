@@ -195,6 +195,16 @@
                     >
                     {deckCount > 0 ? `Deck (${deckCount})` : 'No Cards'}
                     </div>
+
+                    <div>
+                        <button className="btn" onClick="">Deal 5</button>
+                        <button className="btn" onClick="">Deal 7</button>
+                        <button className="btn" onClick="">Reset</button>
+                        <button className="btn" onClick="">Wildcard</button>
+                        <button className="btn" onClick="">Regroup</button>
+                        <button className="btn" onClick="">Toss</button>
+                    </div>
+
                     <div className="card-container">
                         {cardsInHand.map((card, index) => (
                           <Card 
@@ -206,14 +216,7 @@
                           />
                         ))}
                     </div>
-                    <div>
-                        <button className="btn" onClick="">Deal 5</button>
-                        <button className="btn" onClick="">Deal 7</button>
-                        <button className="btn" onClick="">Reset</button>
-                        <button className="btn" onClick="">Wildcard</button>
-                        <button className="btn" onClick="">Regroup</button>
-                        <button className="btn" onClick="">Toss</button>
-                    </div>
+                    
                 </div>
             );
         }
